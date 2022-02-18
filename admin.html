@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <select name="localisation" id="localisation">
+        <option value="">--Please choose an option--</option>
+        <option value="konoha">Konoha</option>
+        <option value="frontalier">Frontalier</option>
+        <option value="non-frontalier">Non-frontalier</option>
+        <option value="ile">Ile</option>
+    </select>
+    <section class="container">
+        <label name="salmon">Saumon (22€) <input type="number" id="salmon"></label><br>
+        <label name="thon">Thon (26€) <input type="number" id="thon"></label><br>
+        <label name="mixte">Mixte (27€) <input type="number" id="mixte"></label><br>
+        <label name="dorade">Dorade (26€) <input type="number" id="dorade"></label><br>
+        <label name ="anguille">Anguille (32€) <input type="number" id="anguille"></label><br>
+
+        <button onclick=displayOrder()>OK</button>
+
+        <div class="order"><h3>Ma commande :</h3></div>
+    </section>
+</body>
+
+<script>
+    function displayOrder(){
+        let order = document.querySelector(".order");
+        order.innerHTML = "";
+        let quantitySalmon = document.querySelector("#salmon");
+        let quantityThon = document.querySelector("#thon");
+        let quantityMixte = document.querySelector("#mixte");
+    
+        if (quantitySalmon.value > 0 ){
+            let p = document.createElement('p');
+            p.innerText = quantitySalmon.value + " Saumon";
+            order.appendChild(p);
+        }
+    
+        if (quantityThon.value > 0 ){
+            let p = document.createElement('p');
+            p.innerText = quantityThon.value + " Thon";
+            order.appendChild(p);
+        }
+    
+        if (quantityMixte.value > 0 ){
+            let p = document.createElement('p');
+            p.innerText = quantityMixte.value + " Mixte";
+            order.appendChild(p);
+        }
+    
+        
+    
+        let totalText = document.createElement('p');
+        let total = totalPrice(quantitySalmon.value, quantityThon.value, quantityMixte.value);
+        let reduc = total * reduction(quantitySalmon.value+ quantityThon.value+quantityMixte.value);
+        let totalReduc = total - reduc;
+        totalText.innerHTML = '<strong>Total de la commande: ' + total + ' €</strong>' +"<br>";
+        totalText.innerHTML += "reduction: " + reduc +"<br>"; 
+        totalText.innerHTML += "total après reduction: " + totalReduc + ' €' ; 
+        if(document.querySelector("#localisation").value == "ile"){
+            totalText.innerHTML += "<br><strong>total avec frais de port: " + ((totalReduc * fdp()) + 50) + ' €</strong>'; 
+        }
+        else{
+            totalText.innerHTML += "<br><strong>total avec frais de port: " + totalReduc * fdp() + ' €</strong>';
+        }
+        order.appendChild(totalText);
+    }
+    
+    function totalPrice(quantitySalmon, quantityThon, quantityMixte){
+        let priceSalmon = 22;
+        let priceThon = 26;
+        let priceMixte = 27;
+    
+        let total = (priceSalmon * quantitySalmon) + (priceThon * quantityThon) + (priceMixte * quantityMixte);
+    
+        return total;
+    }
+    
+    function reduction(quantity){
+        let reduction = 0;
+        if(quantity  >=25 && quantity < 50){
+            reduction = 0.03;
+        }
+        else if(quantity >=50 && quantity <100){
+            reduction = 0.04;
+        }
+        else if(quantity >= 100 && quantity < 200){
+            reduction = 0.06;
+        }
+        else if(quantity >=200){
+            reduction = 0.06;
+        }
+        else{
+            reduction = 1;
+        }
+        return reduction;
+    }
+    function fdp(){
+        let localisation = document.querySelector("#localisation");
+    
+        let fdp = 0;
+        switch (localisation.value){
+            case "frontalier": fdp = 1.03 ;
+           break;
+            case "non-frontalier": fdp = 1.08 ;
+           break;
+            case "ile": fdp = 1.08  ;
+           break;
+           default: fdp = 1;
+    
+        }
+        return fdp;
+    
+    }
+    
+        </script>
+</html>
+

@@ -1,0 +1,48 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    height: 250px;
+    background-color: salmon;
+}
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+h1,
+h2{
+    text-align: center;
+    padding-top: 50px;
+}
+section{
+    /* width: 100%; */
+    padding: 20px 0;
+}
+section img{
+    border: 1px solid black;
+    margin: 0 auto;
+    display: block;
+
+ 
+}
+#carte{
+    width: 700px;
+}
+
+footer form{
+    background-color: salmon;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+footer form div,
+footer form textarea{
+    width: 75%;
+}
+footer form button{
+    display: block;
+}

@@ -4,9 +4,38 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Teuchisama !</title>
 </head>
 <body>
-    
+    <header>
+        <div class="container">
+        <h1>Teuchi-Sashimi</h1>
+    </div>
+    </header>
+    <main>
+        <section class="container">
+            
+            <h2>Notre menu</h2>
+            <img src="/images/menu-sashimi.png" alt="menu sashimi">
+        </section>
+        
+        <section class="container">
+            <h2>Nos secteurs de livraison</h2>
+            <img id="carte" src="/images/carte.png" alt="carte monde naruto">
+        </section>
+    </main>
+    <footer class="container">
+        <form action="post">
+            <div>
+                <p><label for="name">Votre nom</label>
+                <input type="text" name="name" id="name"></p>
+                <p><label for="email">Votre email</label>
+                <input type="email" name="email" id="email"></p>
+            </div>
+            <p><textarea name="message" id="message" cols="30" rows="8" placeholder="Votre message"></textarea>
+            <button type="submit">Envoyer</button></p>
+        </form>
+    </footer>
 </body>
 </html>
