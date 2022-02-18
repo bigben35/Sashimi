@@ -1,0 +1,25 @@
+XXL
+(XS) Afficher les specs dans une page web pour que les clients puissent voir les services proposés(page info)
+
+XL
+(XS) Afficher la carte dans la page web information pour que les clients puissent en déduire les frais de port(page info)
+(L) Afficher une commande (type + quantité)
+(M) Afficher le prix total de la commande(admin)
+(S) Appliquer la réduction(admin)
+(S) Appliquer les frais de port(admin)
+(M) Envoyer copie de la commande par mail pour garder une trace de toutes les commandes
+
+
+L
+(XS) Mettre un encart en bas de page concernant le temps de livraison (page info)
+
+
+
+M
+(XS) Ajouter mail et n° tél en bas de page (info)
+
+S
+(S) Afficher le total des barquettes commandées durant la journée (en bas de page Admin)
+
+XS
+(XL) Formulaire de contact pour informations spécifiques (page info footer)
